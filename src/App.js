@@ -32,8 +32,17 @@ class App extends Component {
       <input className="search-box"
         type='search'
         placeholder='search monsters'
-        onChange={(event) => {
-           console.log(event.target.value);
+        onChange={(e) => {
+           console.log(e.target.value);
+           const searchString = e.target.value.toLocaleLowerCase();
+           // [ { name: 'Leanne'}, {name: 'Yihua'} ]
+           const filteredMonsters = this.state.monsters.filter((monster) => {
+            return monster.name.toLocaleLowerCase().includes(e.target.value);
+           });
+
+           this.setState(() => {
+            return { monsters: filteredMonsters }
+           })
       }}
       />
       {this.state.monsters.map((monster) => {
