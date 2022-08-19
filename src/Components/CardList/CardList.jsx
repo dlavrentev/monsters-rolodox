@@ -6,9 +6,12 @@ class CardList extends Component {
     console.log("render from cardlist");
     const { monsters } = this.props;
     return (
-      <div>
+      <div className="card-list">
         {monsters.map((monster) => (
-          <h1 key={monster.id}>{monster.name}</h1>
+          <div className="card-container">
+          <img src="" alt="monster" />
+
+          </div>
         ))}
       </div>
     );
