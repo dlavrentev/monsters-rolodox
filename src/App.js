@@ -32,7 +32,7 @@ class App extends Component {
   };
 
   render() {
-    
+    // console.log('render from appjs')
 
     const { monsters, searchField } = this.state;
     const { onSearchChange } = this;
@@ -48,7 +48,7 @@ class App extends Component {
           placeholder="search monsters"
           onChange={onSearchChange}
         />
-        
+
         <CardList monsters={filteredMonsters}/>
       </div>
     );
