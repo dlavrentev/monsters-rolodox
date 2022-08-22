@@ -6,7 +6,7 @@ import React from "react";
 
 const App = () => {
 
-  const [searchField, setSearchField] = useState(''); // [value, setValue]
+  const [searchField, setSearchField] = useState('a'); // [value, setValue]
   
   const onSearchChange = (e) => {
     const searchFieldString = e.target.value.toLocaleLowerCase();
