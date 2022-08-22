@@ -5,13 +5,12 @@ import SearchBox from "./Components/SearchBox/SearchBox";
 import React from "react";
 
 const App = () => {
-  const [] = useState();
+
+  const [searchField, setSearchField] = useState(''); // [value, setValue]
   
   const onSearchChange = (e) => {
-    const searchField = e.target.value.toLocaleLowerCase();
-    this.setState(() => {
-      return { searchField };
-    });
+    const searchFieldString = e.target.value.toLocaleLowerCase();
+    setSearchField(searchFieldString);
   };
 
   return (
