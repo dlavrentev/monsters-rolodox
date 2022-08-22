@@ -4,6 +4,13 @@ import CardList from "./Components/CardList/CardList";
 import SearchBox from "./Components/SearchBox/SearchBox";
 
 const App = () => {
+  const onSearchChange = (e) => {
+    const searchField = e.target.value.toLocaleLowerCase();
+    this.setState(() => {
+      return { searchField };
+    });
+  };
+
   return (
     <div className="App">
       <h1 className="app-title">Monsters Rolodex</h1>
