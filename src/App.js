@@ -1,14 +1,23 @@
-import { useState } from 'react';
+import { useState, useEffect } from "react";
 import "./App.css";
 import CardList from "./Components/CardList/CardList";
 import SearchBox from "./Components/SearchBox/SearchBox";
 import React from "react";
 
 const App = () => {
-
-  const [searchField, setSearchField] = useState(''); // [value, setValue]
+  const [searchField, setSearchField] = useState(""); // [value, setValue]
   const [monsters, setMonsters] = useState([]);
-  
+
+  useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/users")
+      .then((response) => response.json())
+      .then((users) => setMonsters(users));
+
+    return () => {
+      second;
+    };
+  }, [third]);
+
   const onSearchChange = (e) => {
     const searchFieldString = e.target.value.toLocaleLowerCase();
     setSearchField(searchFieldString);
@@ -35,16 +44,6 @@ class App extends Component {
       monsters: [],
       searchField: "",
     };
-  }
-
-  componentDidMount() {
-    fetch("https://jsonplaceholder.typicode.com/users")
-      .then((response) => response.json())
-      .then((users) =>
-        this.setState(() => {
-          return { monsters: users };
-        })
-      );
   }
 
   onSearchChange = (e) => {
