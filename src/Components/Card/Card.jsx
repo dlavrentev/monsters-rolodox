@@ -1,15 +1,4 @@
-import { Component } from "react";
 
-
-
-class Card extends Component {
-  render() {
-    const {id, name, email} = this.props.monsters;
-    return (
-        
-    );
-  }
-}
 
 
 
@@ -17,7 +6,8 @@ class Card extends Component {
 import React from 'react'
 import "./../Card/Card.css";
 
-const Card = () => {
+const Card = ({monster}) => {
+  const {id, name, email} = monster;
   return (
     <div className="card-container" key={id}>
         <img
