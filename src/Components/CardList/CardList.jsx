@@ -1,20 +1,37 @@
-import { Component } from "react";
+// import { Component } from "react";
+// import "./../CardList/CardList.css";
+// import Card from "../Card/Card";
+
+// class CardList extends Component {
+//   render() {
+//     console.log(this.props.monsters);
+//     console.log("render from cardlist");
+//     const { monsters } = this.props;
+//     return (
+//       <div className="card-list">
+//         {monsters.map((monster) => {
+//           return <Card monster={monster} />;
+//         })}
+//       </div>
+//     );
+//   }
+// }
+
+// export default CardList;
+
+
+import React from 'react'
 import "./../CardList/CardList.css";
 import Card from "../Card/Card";
 
-class CardList extends Component {
-  render() {
-    console.log(this.props.monsters);
-    console.log("render from cardlist");
-    const { monsters } = this.props;
-    return (
-      <div className="card-list">
+const CardList = ({monsters}) => {
+  return (
+    <div className="card-list">
         {monsters.map((monster) => {
           return <Card monster={monster} />;
         })}
       </div>
-    );
-  }
+  )
 }
 
-export default CardList;
+export default CardList
