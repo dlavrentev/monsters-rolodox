@@ -13,10 +13,7 @@ const App = () => {
       .then((response) => response.json())
       .then((users) => setMonsters(users));
 
-    return () => {
-      second;
-    };
-  }, [third]);
+  }, []);
 
   const onSearchChange = (e) => {
     const searchFieldString = e.target.value.toLocaleLowerCase();
