@@ -7,6 +7,7 @@ import React from "react";
 const App = () => {
   const [searchField, setSearchField] = useState(""); // [value, setValue]
   const [monsters, setMonsters] = useState([]);
+  const [filteredMonsters, setFilteredMonsters] = useState(monsters);
 
   useEffect(() => {
     fetch("https://jsonplaceholder.typicode.com/users")
@@ -14,14 +15,19 @@ const App = () => {
       .then((users) => setMonsters(users));
   }, []);
 
+  useEffect(() => {
+    const newFilteredMonsters = monsters.filter((monster) => {
+      return monster.name.toLocaleLowerCase().includes(searchField);
+    });
+   setFilteredMonsters(newFilteredMonsters);
+  }, [monsters, searchField])
+  
+
   const onSearchChange = (e) => {
     const searchFieldString = e.target.value.toLocaleLowerCase();
     setSearchField(searchFieldString);
   };
 
-  const filteredMonsters = monsters.filter((monster) => {
-          return monster.name.toLocaleLowerCase().includes(searchField);
-        });
 
   return (
     <div className="App">
